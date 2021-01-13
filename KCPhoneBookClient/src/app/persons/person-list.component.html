@@ -1,0 +1,30 @@
+﻿<div class='table-responsive'>
+    <table class='table' *ngIf='persons && persons.length'>
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>homeNumber</th>
+                <th>workNumber</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let person of filteredPersons'>
+                <td>{{person.title}}</td>
+                <td><a [routerLink]="['/persons', person.id]">{{ person.firstName }}</a></td>
+                <td>{{ person.lastName }}</td>
+                <td>{{ person.homeNumber }}</td>
+                <td>{{ person.workNumber }}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink]="['/persons', person.id, 'edit']">
+                        Edit
+                    </a>
+                </td>
+        </tbody>
+    </table>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>

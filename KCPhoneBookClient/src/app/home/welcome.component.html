@@ -1,0 +1,48 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <div class='panel-body'>
+        
+        <div class='row'>
+            <!-- <kc-criteria #filterCriteria class='col-md-10'
+                [displayDetail]='includeDetail'
+                [hitCount]='filteredPersons?.length'
+                (valueChange)='onValueChange($event)'>
+            </kc-criteria>  -->
+        </div>
+    <br><br>
+        <div class='table-responsive'>
+            <table class='table' >
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Home Number</th>
+                        <th>Work Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let person of filteredPersons'>
+                        <td>{{person.title}}</td>
+                        <td><a [routerLink]="['/persons', person.id]">{{ person.firstName }}</a></td>
+                        <td>{{ person.lastName }}</td>
+                        <td>{{ person.homeNumber }}</td>
+                        <td>{{ person.workNumber }}</td>
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/persons', person.id, 'edit']">
+                                Edit
+                            </a>
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>

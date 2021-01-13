@@ -1,0 +1,209 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+
+    <div class="card-body">
+        <form novalidate
+              (ngSubmit)="savePerson()">
+            <fieldset *ngIf="person">
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="titleId">Title</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="titleId"
+                               type="text"
+                               placeholder="Title (required)"
+                               required
+                               minlength="2"
+                               [(ngModel)]=person.title
+                               name="title"
+                               #titleVar="ngModel"
+                               [ngClass]="{'is-invalid': (titleVar.touched || 
+                               titleVar.dirty || person.id !== 0) && 
+                                                        !titleVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="titleVar.errors?.required">
+                                Title is required.
+                            </span>
+                            <span *ngIf="titleVar.errors?.minlength">
+                                Title must be at least two characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="firstNameId">First name</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="firstNameId"
+                               type="text"
+                               placeholder="First Name (required)"
+                               required
+                               minlength="3"
+                               [(ngModel)]=person.firstName
+                               name="firstName"
+                               #firstNameVar="ngModel"
+                               [ngClass]="{'is-invalid': (firstNameVar.touched || 
+                               firstNameVar.dirty || person.id !== 0) && 
+                                                        !firstNameVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="firstNameVar.errors?.required">
+                                First name is required.
+                            </span>
+                            <span *ngIf="firstNameVar.errors?.minlength">
+                                First name must be at least three characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="lastNameId">Last name</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="lastNameId"
+                               type="text"
+                               placeholder="Last Name (required)"
+                               required
+                               minlength="3"
+                               [(ngModel)]=person.lastName
+                               name="lastName"
+                               #lastNameVar="ngModel"
+                               [ngClass]="{'is-invalid': (lastNameVar.touched || 
+                               lastNameVar.dirty || person.id !== 0) && 
+                                                        !lastNameVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="lastNameVar.errors?.required">
+                                Last name is required.
+                            </span>
+                            <span *ngIf="lastNameVar.errors?.minlength">
+                                Last name must be at least three characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+   
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="emailId">Email</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="emailId"
+                               type="text"
+                               placeholder="Email (required)"
+                               required                               
+                               [(ngModel)]=person.email
+                               name="email"
+                               #emailVar="ngModel"
+                               [ngClass]="{'is-invalid': (emailVar.touched || 
+                               emailVar.dirty || person.id !== 0) && 
+                                                        !emailVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="emailVar.errors?.required">
+                                Email is required.
+                            </span>
+                            <span *ngIf="emailVar.errors?.email">
+                                Please insert correct email eg: user@user.com
+                            </span>
+                        </span>
+                    </div>
+                </div>              
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="addressId">Address</label>
+
+                    <div class="col-md-8">
+                        <textarea class="form-control"
+                                  id="addressId"
+                                  placeholder="Address"
+                                  rows=3
+                                  [(ngModel)]=person.address
+                                  name="address">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="homeNumberId">Home Number</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="homeNumberId"
+                               type="number"
+                               placeholder="Home number (required)"
+                               required
+                               minlength="3"
+                               [(ngModel)]=person.homeNumber
+                               name="homeNumber"
+                               #homeNumberVar="ngModel"
+                               [ngClass]="{'is-invalid': (homeNumberVar.touched || 
+                               homeNumberVar.dirty || person.id !== 0) && 
+                                                        !homeNumberVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="homeNumberVar.errors?.required">
+                                Home number is required.
+                            </span>
+                            <span *ngIf="homeNumberVar.errors?.minlength">
+                                homeNumber must be at least three number.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="workNumberId">Work Number</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="workNumberId"
+                               type="number"
+                               placeholder="Work number (required)"
+                               required
+                               minlength="3"
+                               [(ngModel)]=person.workNumber
+                               name="workNumber"
+                               #workNumberVar="ngModel"
+                               [ngClass]="{'is-invalid': (workNumberVar.touched || 
+                               workNumberVar.dirty || person.id !== 0) && 
+                                                        !workNumberVar.valid }" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="workNumberVar.errors?.required">
+                                Home number is required.
+                            </span>
+                            <span *ngIf="workNumberVar.errors?.minlength">
+                                Work number must be at least three numbers.
+                            </span>
+                        </span>
+                    </div>
+                </div> 
+
+                <div class="form-group row">
+                    <div class="col-md-4 col-md-offset-2">
+                        <button class="btn btn-primary mr-2"
+                                type="submit"
+                                style="width:80px"
+                                [disabled]='!editForm?.valid'>
+                            Save
+                        </button>
+                        <a class="btn btn-light mr-2"
+                           style="width:80px"
+                           (click)="cancel()">
+                            Cancel
+                        </a>
+                        <a class="btn btn-light"
+                           style="width:80px"
+                           (click)="deletePerson()">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>
